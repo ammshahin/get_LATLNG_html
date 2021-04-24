@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Location</title>
+</head>
+<body>
+    <h1 id="empty"></h1>
+    <h1 id = "lat"></h1>
+    <button type="button" onclick="myLocation()">Get location</button>
+
+    <script>
+        var x = document.getElementById("empty")
+        var y = document.getElementById("lat")
+        function myLocation(){
+            if(navigator.geolocation){
+            navigator.geolocation.getCurrentPosition(showLocation);    
+            }
+        }
+        function showLocation(position){
+            x.innerHTML = "Long:" + position.coords.longitude;
+            y.innerHTML = "Lat:" + position.coords.latitude;
+        }
+    </script>
+</body>
+</html>
